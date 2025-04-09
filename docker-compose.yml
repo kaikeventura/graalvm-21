@@ -16,15 +16,3 @@ services:
     container_name: openjdk21
     ports:
       - "8081:8080"
-
-  glances:
-    image: nicolargo/glances:latest
-    container_name: glances
-    restart: unless-stopped
-    ports:
-      - "61208:61208"  # Web interface
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro  # Acesso aos containers Docker
-      - /etc/machine-id:/etc/machine-id:ro  # Para identificar a máquina (Linux only)
-    command: glances -w
-
