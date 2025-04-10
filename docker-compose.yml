@@ -1,18 +1,34 @@
 version: "3.8"
 
 services:
-  graalvm21:
+  liberica21:
     build:
       context: .
-      dockerfile: docker/graalvm/Dockerfile
-    container_name: graalvm21
+      dockerfile: docker/bellsoft/Dockerfile
+    container_name: liberica21
     ports:
       - "8080:8080"
 
   openjdk21:
     build:
       context: .
-      dockerfile: docker/openjdk/Dockerfile
+      dockerfile: docker/openjdk/21/Dockerfile
     container_name: openjdk21
     ports:
       - "8081:8080"
+
+  temurin21:
+    build:
+      context: .
+      dockerfile: docker/temurin/Dockerfile
+    container_name: temurin21
+    ports:
+      - "8082:8080"
+
+  graalvm21:
+    build:
+      context: .
+      dockerfile: docker/graalvm/Dockerfile
+    container_name: graalvm21
+    ports:
+      - "8083:8080"
